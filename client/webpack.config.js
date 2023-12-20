@@ -40,7 +40,7 @@ module.exports = () => {
         publicPath: '/',
         icons: [
           {
-            src: path.resolve('src/images/icon.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
@@ -60,8 +60,8 @@ module.exports = () => {
             use: {
               loader: 'babel-loader',
               options: {
-                plugins: ['@babel/preset-env'],
-                plgins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
+                presets: ['@babel/preset-env'],
+                plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
               },
             }
           },

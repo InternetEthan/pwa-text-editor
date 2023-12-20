@@ -14,12 +14,12 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
+  console.log('putDb called');
   const textEditDB = await openDB('jate', 1);
   const tx = textEditDB.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
   await store.put(content);
   await tx.done;
-  console.log('putDb complete');
 }
 
 // console.error('putDb not implemented');
@@ -29,7 +29,7 @@ export const getDb = async () => {
   const textEditDB = await openDB('jate', 1);
   const tx = textEditDB.transaction('jate', 'readonly');
   const store = tx.objectStore('jate');
-  const content = await store.getAll();
+  const content = await store.get('jate');
   await tx.done;
   console.log('getDb complete');
   return content;
